@@ -1,0 +1,30 @@
+{
+  "name": "nightvision",
+  "version": "1.0.0",
+  "description": "Visual difference using nightwatch",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "easyimage": "^2.1.0",
+    "mkdirp": "^0.5.1",
+    "nightwatch": "^0.8.3",
+    "node-resemble-js": "^0.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nightwatch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.proximity.fr/uwaliyul/nightvision.git"
+  },
+  "keywords": [
+    "nightwatch",
+    "selenium",
+    "resemblejs"
+  ],
+  "author": "Umar Waliyullah",
+  "license": "MIT"
+}
