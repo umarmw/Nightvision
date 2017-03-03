@@ -1,0 +1,58 @@
+extends _base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Regression Testing in progress'
+
+block content
+  - var list = ''; //program.name +">"+ program.version +">"+ program.language;
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Report": "/report", "name v l":""}
+  })
+
+  section.content
+    input.js-hostname(type='hidden', value='#{host}', name='host')
+    input.js-nsocket(type='hidden', value='1', name='nsocket')
+    .row
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-aqua
+            i.fa.fa-desktop
+          .info-box-content
+            span.info-box-text Program
+            span.info-box-number #{capitalize(program.name)}
+
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-green
+            i.fa.fa-files-o
+          .info-box-content
+            span.info-box-text Version
+            span.info-box-number #{program.version}
+
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-yellow
+            i.fa.fa-flag-o
+          .info-box-content
+            span.info-box-text Culture
+            span.info-box-number #{program.language}
+
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-red
+            i.fa.fa-star-o
+          .info-box-content
+            span.info-box-text Build
+            span.info-box-number 0.3
+
+    .row
+      .col-xs-12
+        .box
+          .box-header
+            h3.box-title.js-test-status Test in progress
+          .box-body
+            .progress.progress-sm.active
+              .progress-bar.progress-bar-success.progress-bar-striped(style="width: 100%")

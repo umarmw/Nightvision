@@ -1,0 +1,50 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = 'View Testcase'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Testcases": "/management/testcases", "View":""}
+  })
+
+  section.content
+    // Your Page Content Here
+    .row
+      .col-xs-12
+        .box
+          //- .box-header
+          //-   h3.box-title #{title}
+          .box-body.table-responsive.no-padding
+            table.table.table-hover
+              tbody
+                tr
+                  td ID
+                  td !{testcase._id}
+                tr
+                  td Program
+                  td !{testcase.program.name} !{testcase.program.version} !{testcase.program.language}
+                tr
+                  td Category
+                  td !{testcase.category.name}
+                tr
+                  td Name
+                  td !{testcase.name}
+                tr
+                  td URL
+                  td !{testcase.url}
+                if testcase.button
+                  tr
+                    td Button to toggle
+                    td !{testcase.button}
+                tr
+                  td Element to screenshot
+                  td !{testcase.element}
+
+
+          .box-footer
+            a.btn.btn-default(href='/management/testcases') Back
+            a.btn.btn-info.pull-right(href='/management/testcases/'+testcase._id+'/edit') Edit

@@ -1,0 +1,29 @@
+extends _base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Error page'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Error":""}
+  })
+
+
+  section.content
+    .error-page
+      h2.headline.text-yellow  404
+      .error-content
+        h3
+          i.fa.fa-warning.text-yellow
+          |  !{error}
+        p
+          | We could not find the page you were looking for.
+          | Meanwhile, you can
+          | &nbsp;
+          a(href='/') return to dashboard
+          | &nbsp;or&nbsp;
+          a(href='javascript: history.go(-1)') go back to previous page
+          | .

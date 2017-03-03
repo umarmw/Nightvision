@@ -1,0 +1,79 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = 'View Program'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Programs": "/management/programs", "View":""}
+  })
+
+  section.content
+    .row
+      .col-xs-12
+        .js-message !{message}
+    // Your Page Content Here
+    .row
+      .col-xs-12
+        .box
+          //- .box-header
+          //-   h3.box-title #{title}
+          .box-body.table-responsive.no-padding
+            table.table.table-hover
+              tbody
+                tr
+                  td ID
+                  td !{program._id}
+                tr
+                  td Name
+                  td !{program.name}
+                tr
+                  td Version
+                  td !{program.version}
+                tr
+                  td Language
+                  td !{program.language}
+                tr
+                  td BaseURL
+                  td !{program.baseurl}
+          .box-footer
+            a.btn.btn-default(href='/management/programs') Back
+
+            a.btn.btn-warning.pull-right(href='/management/programs/'+program._id+'/duplicate')
+              span.fa.fa-copy
+              |  Duplicate
+              span(class="top", data-placement="top", data-toggle="tooltip", data-original-title="It will create a copy of the baseline images and testcases to a new one")
+                .fa.fa-question-circle
+            span.pull-right &nbsp;
+            a.btn.btn-info.pull-right(href='/management/programs/'+program._id+'/edit')
+              span.fa.fa-edit
+              |  Edit
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header
+            h3 Testcases
+          .box-body.table-responsive.no-padding
+            .js-testcases-by-program(data-program-id=program._id, data-management="true")
+              table.table.table-hover#testcases-by-program
+                thead
+                  tr
+                    th ID
+                    th Name
+                    th Category
+                    th Element
+                    th URL
+                    th Action
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td

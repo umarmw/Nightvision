@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Nightvision | Log in
+    // Tell the browser to be responsive to screen width
+    meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+    // Bootstrap 3.3.5
+    link(rel="stylesheet", href="/css/style.css")
+
+    // Bootstrap 3.3.5
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    // Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    // Ionicons
+    link(rel='stylesheet', href='/css/ionicons.min.css')
+    // Theme style
+    link(rel='stylesheet', href='/css/AdminLTE.min.css')
+    //
+      AdminLTE Skins. We have chosen the skin-blue for this starter
+      page. However, you can choose any other skin. Make sure you
+      apply the skin class to the body tag so the changes take effect.
+    link(rel='stylesheet', href='/css/skins/skin-blue.min.css')
+
+  body.hold-transition.register-page
+    .register-box
+      .register-logo
+        a(href='/')
+          b Nightvision
+          | UI
+      .register-box-body
+        p.login-box-msg Register a new membership
+        if messages.error
+          .alert.alert-danger
+            div= messages.error
+        if messages.info
+          .alert.alert-info
+            div= messages.info
+        if messages.success
+          .alert.alert-success
+            div= messages.success
+        form(method='post', data-parsley-validate="")
+          .form-group.has-feedback
+            input.form-control(type='password', placeholder='Password', name='password', required='', minlength='3')
+            span.glyphicon.glyphicon-lock.form-control-feedback
+          .form-group.has-feedback
+            input.form-control(type='password', placeholder='Retype password', name='confirm', required='', minlength='3')
+            span.glyphicon.glyphicon-log-in.form-control-feedback
+          .row
+            .col-xs-8
+              //- .checkbox.icheck
+              //-   label
+              //-     input(type='checkbox')
+              //-     |  I agree to the
+              //-     a(href='#') terms
+            // /.col
+            .col-xs-4
+              button.btn.btn-primary.btn-block.btn-flat(type='submit') Update password
+            // /.col
+        //- a.text-center(href='/login') I already have a membership
+
+    // jQuery 2.1.4
+    script(src='/js/plugins/jQuery/jQuery-2.1.4.min.js')
+    // Bootstrap 3.3.5
+    script(src='/js/plugins/bootstrap/bootstrap.min.js')
+    script(src='/js/plugins/parsley/parsley.min.js')

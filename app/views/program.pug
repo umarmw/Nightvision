@@ -1,0 +1,50 @@
+extends _base/layout.pug
+
+prepend vars
+  - var pageTitle = title
+
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Program": ""}
+  })
+
+  - if (messages.error || messages.success || messages.info) {
+      section.content(style="min-height: auto;")
+        .row
+          .col-xs-12
+              if messages.error
+                .callout.callout-danger(style="margin-bottom: 0;")
+                  div= messages.error
+              if messages.info
+                .callout.callout-info(style="margin-bottom: 0;")
+                  div= messages.info
+              if messages.success
+                .callout.callout-success(style="margin-bottom: 0;")
+                  div= messages.success
+  - }
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            .js-programs-management(data-management="false")
+              table.table.table-hover#programs-management
+                thead
+                  tr
+                    th ID
+                    th Name
+                    th Version
+                    th Language
+                    th Action
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td

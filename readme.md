@@ -20,6 +20,10 @@ npm i nightwatch -g
 http://www.imagemagick.org/script/binary-releases.php
 ```
 
+```
+ImageMagick-6.9.3-5-Q16-x64-dll.exe	download	download	Win64 dynamic at 16 bits-per-pixel
+```
+
 ## API Reference
 
 See Nightwatch [Guide!](http://nightwatchjs.org/guide) for more explantion of the arguments and how to use it.
@@ -43,6 +47,10 @@ To run the test,
 1. Screenshot doest work with chrome driver
 
 2. Cant run Selenium with Safari driver in Windows
+
+## upcoming
+
+Adding MongoDB to the project
 
 
 ## Contributors

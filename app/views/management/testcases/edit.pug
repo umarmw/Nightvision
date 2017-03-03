@@ -1,0 +1,81 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Edit Testcase'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Testcases": "/management/testcases", "Edit":""}
+  })
+
+  //- convert mongo object id to string
+  - var testcaseProgramId = testcase.program._id + ''
+  - var testcaseCategoryId = testcase.category._id +''
+
+  section.content
+    // Your Page Content Here
+    .row
+      .col-xs-12
+        // Horizontal Form
+        .box.box-info
+          //- .box-header.with-border
+          //-   h3.box-title #{title}
+          // /.box-header
+          // form start
+          form.form-horizontal#formupdateTestcase(name="updatetestcase",method="post",action="/management/testcases/"+testcase._id+"/edit", data-parsley-validate="")
+            .box-body
+              .form-group
+                label.col-sm-2.control-label(for='pname') Program
+                .col-sm-10
+                  select.form-control#pname(name='program', required='')
+                    option(value='') Choose
+                    if result.program
+                      for el in result.program
+                        option(value=el._id, selected=(el._id == testcaseProgramId)) #{el.name} - #{el.version} - #{el.language}
+              .form-group
+                label.col-sm-2.control-label(for='cname') Category
+                .col-sm-10
+                  select.form-control#cname(name='category', required='')
+                    option(value='') Choose
+                    if result.category
+                      for el in result.category
+                        option(value=el._id, selected=(el._id == testcaseCategoryId)) #{el.name}
+              .form-group
+                label.col-sm-2.control-label(for='tname') Testcase Name
+                .col-sm-10
+                  input#tname.form-control(type='text', placeholder='Name of Testcase', name='testcase', value=testcase.name, required='', minlength='3', data-parsley-pattern="/[a-z0-9 ]/ig")
+              .form-group
+                label.col-sm-2.control-label(for='turl') URL
+                .col-sm-10
+                  input#turl.form-control(type='text', placeholder='http//example.com', name='url', value=testcase.url, required='', minlength='3')
+              .form-group
+                label.col-sm-2.control-label(for='tbutton')
+                  | Click button to trigger
+                  a(class="top", data-placement="top", data-toggle="tooltip", href="#", data-original-title="Optional! Suitable for testing openable item; eg menu: open menu then save screenshot")
+                    .fa.fa-question-circle
+                .col-sm-10
+                  input#tbutton.form-control(type='text', placeholder='Class name or id of button', name='button', value=testcase.button)
+              .form-group
+                label.col-sm-2.control-label(for='telement') Element to screenshot
+                .col-sm-10
+                  input#telement.form-control(type='text', placeholder='Class name or id of element', name='element', value=testcase.element, required='', minlength='2', pattern="/([.\\#\\-\\a-z0-9])\\w+/ig")
+
+            // /.box-body
+            .box-footer
+              input(type='hidden',value='PUT',name='_method')
+              a.btn.btn-default(href='/management/testcases') Cancel
+              button.btn.btn-info.pull-right(type='submit') Update
+            // /.box-footer
+    .row
+      .col-xs-12
+        .box.box-info
+          .box-header.with-border
+            h3.box-title Advanced operations
+          .box-body
+          .box-footer
+            form.form-horizontal(action='/management/testcases/'+testcase._id+'/edit',method='post',enctype='application/x-www-form-urlencoded')
+              input(type='hidden',value='DELETE',name='_method')
+              button.btn.btn-danger(type='submit') Delete

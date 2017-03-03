@@ -1,8 +1,0 @@
-# ignore reports
-reports/**/*.xml
-
-#ignore screensho diffs
-screenshot/**/diffs/*.png
-
-#ignore screensho results
-screenshot/**/results/*.png

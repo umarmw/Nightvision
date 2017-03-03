@@ -1,0 +1,45 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Edit Category'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Categories": "/management/categories", "Edit":""}
+  })
+
+  section.content
+    // Your Page Content Here
+    .row
+      .col-xs-12
+        // Horizontal Form
+        .box.box-info
+          //- .box-header.with-border
+          //-   h3.box-title #{title}
+          // /.box-header
+          // form start
+          form.form-horizontal#formupdateCategory(name="updatecategory",method="post",action="/management/categories/"+category._id+"/edit", data-parsley-validate="")
+            .box-body
+              .form-group
+                label.col-sm-2.control-label(for='cname') Category
+                .col-sm-10
+                  input#cname.form-control(type='text', placeholder='Category', name='category', value=category.name, required='', minlength='3')
+            // /.box-body
+            .box-footer
+              input(type='hidden',value='PUT',name='_method')
+              a.btn.btn-default(href='/management/categories') Cancel
+              button.btn.btn-info.pull-right(type='submit') Update
+            // /.box-footer
+    .row
+      .col-xs-12
+        .box.box-info
+          .box-header.with-border
+            h3.box-title Advanced operations
+          .box-body
+          .box-footer
+            form.form-horizontal(action='/management/categories/'+category._id+'/edit',method='post',enctype='application/x-www-form-urlencoded')
+              input(type='hidden',value='DELETE',name='_method')
+              button.btn.btn-danger(type='submit') Delete

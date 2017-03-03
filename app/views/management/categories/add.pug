@@ -1,0 +1,34 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Add Cateogry'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Categories": "/management/categories", "Add":""}
+  })
+
+  section.content
+    // Your Page Content Here
+    .row
+      .col-xs-12
+        // Horizontal Form
+        .box.box-info
+          //- .box-header.with-border
+            //- h3.box-title #{title}
+          // /.box-header
+          // form start
+          form.form-horizontal#formAddProgram(name="addprogrm",method="post",action="/management/categories/add", data-parsley-validate="")
+            .box-body
+              .form-group
+                label.col-sm-2.control-label(for='cname') Category name
+                .col-sm-10
+                  input#cname.form-control(type='text', placeholder='Category', name='category', required='', minlength='3')
+            // /.box-body
+            .box-footer
+              a.btn.btn-default(href='/management/categories') Cancel
+              button.btn.btn-info.pull-right(type='submit') Save
+            // /.box-footer

@@ -1,0 +1,46 @@
+mixin c-breadcrumb(list)
+  ol.breadcrumb
+    - for(label in list)
+      - if(list[label] === "")
+        li.active(itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb")
+          span(itemprop="title") !{label}
+      - else
+        li(itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb")
+          a(href="#{list[label]}" itemprop="url") 
+            span(itemprop="title") !{label}
+
+mixin c-page-title-breadcrumb(options)
+    - title = options.title || ''
+    - subtitle = options.subtitle || ''
+    - breadcrumbList = options.breadcrumbList || {"Home":"/"};
+
+    section.content-header
+        h1
+          | #{title}
+          small #{subtitle}
+        +c-breadcrumb(breadcrumbList)
+
+
+mixin c-modal(options)
+  - id = options.id || 'modal'
+  - title = options.title || ''
+  - content = options.content || ''
+  - buttonclose = options.buttonclose || false
+  - buttonok = options.buttons || false
+
+  .modal.fade(tabindex='-1', role='dialog', id=id)
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title #{title}
+        .modal-body
+          p #{content}
+        .modal-footer
+          if buttonclose
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+          if buttonok
+            button.btn.btn-primary(type='button') Save changes
+
+-  function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); };

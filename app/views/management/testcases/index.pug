@@ -1,0 +1,37 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = title
+
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Testcases": ""}
+  })
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            .js-testcases-management
+              table.table.table-hover#testcases-management
+                thead
+                  tr
+                    th ID
+                    th Name
+                    th Category
+                    th Element
+                    th URL
+                    th Action
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
