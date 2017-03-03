@@ -1,0 +1,46 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Add Program'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Programs": "/management/programs", "Add":""}
+  })
+
+  section.content
+    // Your Page Content Here
+    .row
+      .col-xs-12
+        // Horizontal Form
+        .box.box-info
+          //- .box-header.with-border
+            //- h3.box-title #{title}
+          // /.box-header
+          // form start
+          form.form-horizontal#formAddProgram(name="addprogrm",method="post",action="/management/programs/add", data-parsley-validate="")
+            .box-body
+              .form-group
+                label.col-sm-2.control-label(for='pname') Program
+                .col-sm-10
+                  input#pname.form-control(type='text', placeholder='Program', name='program', required='', minlength='3')
+              .form-group
+                label.col-sm-2.control-label(for='pversion') Version
+                .col-sm-10
+                  input#pversion.form-control(type='text', placeholder='1.0.0', name='version', required='', minlength='3')
+              .form-group
+                label.col-sm-2.control-label(for='planguage') Language
+                .col-sm-10
+                  input#planguage.form-control(type='text', placeholder='en', name='language', required='', minlength='2')
+              .form-group
+                label.col-sm-2.control-label(for='pbaseurl') BaseURL
+                .col-sm-10
+                  input#pbaseurl.form-control(type='text', placeholder='http://www.domain.com', name='baseurl', required='', minlength='5')
+            // /.box-body
+            .box-footer
+              a.btn.btn-default(href='/management/programs') Cancel
+              button.btn.btn-info.pull-right(type='submit') Save
+            // /.box-footer

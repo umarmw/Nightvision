@@ -1,0 +1,53 @@
+// Main Header
+header.main-header
+  // Logo
+  a.logo(href='/')
+    // mini logo for sidebar mini 50x50 pixels
+    span.logo-mini
+      b N
+      | UI
+    // logo for regular state and mobile devices
+    span.logo-lg
+      b Nightvision
+      | UI
+  // Header Navbar
+  nav.navbar.navbar-static-top(role='navigation')
+    // Sidebar toggle button
+    a.sidebar-toggle(href='#', data-toggle='offcanvas', role='button')
+      span.sr-only Toggle navigation
+    // Navbar Right Menu
+    .navbar-custom-menu
+      ul.nav.navbar-nav
+
+        // User Account Menu
+        li.dropdown.user.user-menu
+          // Menu Toggle Button
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            // The user image in the navbar
+            img.user-image(src='/img/nightowl.png', alt='User Image')
+            // hidden-xs hides the username on small devices so only the image appears.
+            //- span.hidden-xs= user.firstname
+          ul.dropdown-menu
+            // The user image in the menu
+            li.user-header
+              img.img-circle(src='/img/nightowl.png', alt='User Image')
+              p
+                span.js-username #{user.firstname} #{user.lastname} 
+                | - Web Tester
+                small Member since Nov. 2012
+            // Menu Body
+            //- li.user-body
+            //-   .row
+            //-     .col-xs-4.text-center
+            //-       a(href='#') Followers
+            //-     .col-xs-4.text-center
+            //-       a(href='#') Sales
+            //-     .col-xs-4.text-center
+            //-       a(href='#') Friends
+              // /.row
+            // Menu Footer
+            li.user-footer
+              .pull-left
+                a.btn.btn-default.btn-flat(href='/profile') Profile
+              .pull-right
+                a.btn.btn-default.btn-flat(href='/logout') Sign out

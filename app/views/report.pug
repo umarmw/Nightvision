@@ -1,0 +1,199 @@
+extends _base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Regression Report'
+
+block content
+  - var list = program.name //program.name +">"+ program.version +">"+ program.language;
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Report": "/report", "Program" :""}
+  })
+
+  section.content
+    - if (typeof(message) !== 'undefined'){
+      .row
+        .col-xs-12
+          .alert.alert-dismissible(class='alert-#{messageType}')
+            button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+            h4 #{message}
+    - }
+
+    .row
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-aqua
+            i.fa.fa-desktop
+          .info-box-content
+            span.info-box-text Program
+            span.info-box-number #{capitalize(program.name)}
+
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-green
+            i.fa.fa-cube
+          .info-box-content
+            span.info-box-text Version
+            span.info-box-number #{program.version}
+
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-yellow
+            i.fa.fa-flag-o
+          .info-box-content
+            span.info-box-text Culture
+            span.info-box-number #{program.language}
+
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          span.info-box-icon.bg-red
+            i.fa.fa-file-text
+          .info-box-content
+            span.info-box-text Testcases
+            span.info-box-number #{testcases.length}
+      //- .col-xs-12
+      //-   form.js-get-xml-report(method="post")
+      //-     input(type="hidden" name="programId" value=''+program._id)
+        //- input(type="hidden" value="#{leveldeep}" class="js-level-deep")
+
+    - if (testcases.length > 0){
+      .row
+        .col-xs-12
+          .box.box-primary
+            .box-body
+              .col-md-9
+                form.form-inline.js-form-run-test(method="post", action='/program/'+program._id+'/test')
+                  input(type="hidden" name="program_id", value=''+program._id)
+                  input(type="hidden" name="testcase_count", value=''+testcases.length)
+                  input(type="hidden" name="testcase_id", value="")
+                  input(type="hidden" name="testcase_module", value="")
+                  button.btn.btn-success.btn-lg(type="submit", value="Run Test")
+                    i.fa.fa-play
+                    |  Run Test
+              .col-md-3
+                .pull-right.btn-group
+                  button.btn.btn-info.btn-sm(type='button')
+                    i.fa.fa-gears
+                  button.btn.btn-info.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown')
+                      span.caret
+                      span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role='menu')
+                      li
+                        a(href='/program/'+program._id+'/clear/report')
+                          span.glyphicon.glyphicon-list-alt
+                          | Clear Report
+                      li
+                        a(href='/program/'+program._id+'/clear/image')
+                          span.glyphicon.glyphicon-picture
+                          | Clear Images
+                          //- span.glyphicon.glyphicon-info-sign(class="top", data-placement="top", data-toggle="tooltip", data-original-title="Clear images & report")
+    - } else {
+      .row
+        .col-xs-12
+          .callout.callout-danger
+            h4 There is no testcase defined for this program!
+    -}
+
+    .row
+      .col-xs-12
+        .js-message-pane
+
+    .row
+
+      .col-md-12
+        .nav-tabs-custom
+          ul.nav.nav-tabs
+            li.active
+              a(href='#tab_1', data-toggle='tab') Results
+            li
+              a(href='#tab_2', data-toggle='tab') Test cases
+
+          .tab-content
+            #tab_1.tab-pane.active
+
+              .box-body.table-responsive.no-padding
+                //- table.table.table-hover
+                //-   tbody
+                //-     tr
+                //-       th #
+                //-       th File
+                //-       th Category
+                //-       th Result
+                //-       th Date
+                //-       th Status
+                //-       th Action
+
+                .js-rawlogs.js-report-table
+                  table.table.table-hover#rawlogs
+                    thead
+                      tr
+                        th ID
+                        th Name
+                        th Category
+                        th Date
+                        th passed
+                        th failed
+                        th program
+                        th testcase
+                        th Status
+                        th Action
+                    tbody
+                      tr
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+
+            // /.end of result table
+            #tab_2.tab-pane
+
+              .box-body.table-responsive.no-padding
+                .js-testcases-by-program(data-program-id=program._id)
+                  table.table.table-hover#testcases-by-program
+                    thead
+                      tr
+                        th ID
+                        th Name
+                        th Category
+                        th Element
+                        th URL
+                        th Action
+                    tbody
+                      tr
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+
+
+            // /.end of testcases pane
+          // /.tab-content
+        // nav-tabs-custom
+      // /.col
+
+    // Your Page Content Here
+    //- | #{report}
+
+    +c-modal({
+      id : 'report-modal',
+      title : 'Report Detail',
+      Content: '',
+      buttonclose: true
+      })
+
+    +c-modal({
+      id : 'compare-modal',
+      title : 'Differential Window',
+      Content: '',
+      buttonclose: true
+      })

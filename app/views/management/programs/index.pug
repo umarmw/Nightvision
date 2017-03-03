@@ -1,0 +1,38 @@
+extends ../../_base/layout.pug
+
+prepend vars
+  - var pageTitle = title
+
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Management": "/management", "Programs": ""}
+  })
+
+  section.content
+    .row
+      .col-xs-12
+        .js-message !{message}
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            .js-programs-management(data-management="true")
+              table.table.table-hover#programs-management
+                thead
+                  tr
+                    th ID
+                    th Name
+                    th Version
+                    th Language
+                    th Action
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td

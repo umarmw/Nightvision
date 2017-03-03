@@ -1,0 +1,43 @@
+extends _base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Landing home'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Profile":""}
+  })
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          form(action='/profile', method='post')
+            .box-header
+              h3.box-title Modify Profile
+            .box-body
+              if messages.error
+                .alert.alert-danger
+                  div= messages.error
+              if messages.info
+                .alert.alert-info
+                  div= messages.info
+              if messages.success
+                .alert.alert-success
+                  div= messages.success
+              .form-group.has-feedback
+                input.form-control(type='hidden', name='id', value=profile._id)
+                input.form-control(type='text', placeholder='First name', name='firstname', value=profile.firstname)
+                span.glyphicon.glyphicon-user.form-control-feedback
+              .form-group.has-feedback
+                input.form-control(type='text', placeholder='Last name', name='lastname', value=profile.lastname)
+                span.glyphicon.glyphicon-user.form-control-feedback
+              .form-group.has-feedback
+                input.form-control(type='email', placeholder='Email', name='email', value=profile.email)
+                span.glyphicon.glyphicon-envelope.form-control-feedback
+            .box-footer
+              a.btn.btn-primary.pull-left(href="/profile/password") Change password
+              button.btn.btn-primary.pull-right(type='submit') Update

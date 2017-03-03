@@ -1,0 +1,86 @@
+extends _base/layout.pug
+
+prepend vars
+  - var pageTitle = 'Landing home'
+
+block content
+
+  +c-page-title-breadcrumb({
+    title: title,
+    subtitle: '',
+    breadcrumbList: {"Home": "/", "Dashboard":""}
+  })
+
+  section.content
+    // Your Page Content Here
+    //- .row
+    //-   .col-md-3.col-sm-6.col-xs-12
+    //-     .info-box
+    //-       span.info-box-icon.bg-aqua
+    //-         i.fa.fa-desktop
+    //-       .info-box-content
+    //-         span.info-box-text Program
+    //-         span.info-box-number Pampers, Beinggirl, Victoria
+    //-
+    //-   .col-md-3.col-sm-6.col-xs-12
+    //-     .info-box
+    //-       span.info-box-icon.bg-green
+    //-         i.fa.fa-files-o
+    //-       .info-box-content
+    //-         span.info-box-text Version
+    //-         span.info-box-number 2.4.1, 2.5.0, 3.0.0
+    //-
+    //-   .col-md-3.col-sm-6.col-xs-12
+    //-     .info-box
+    //-       span.info-box-icon.bg-yellow
+    //-         i.fa.fa-flag-o
+    //-       .info-box-content
+    //-         span.info-box-text Culture
+    //-         span.info-box-number EN, AR, JP
+    //-
+    //-   .col-md-3.col-sm-6.col-xs-12
+    //-     .info-box
+    //-       span.info-box-icon.bg-red
+    //-         i.fa.fa-star-o
+    //-       .info-box-content
+    //-         span.info-box-text Build
+    //-         span.info-box-number 0.3
+    .row
+      .col-md-12.col-sm-12.col-xs-12
+        .box.box-info
+          .box-header.with-border
+            h3.box-title Latest Test run
+            .box-tools.pull-right
+              button.btn.btn-box-tool(type='button', data-widget='collapse')
+                i.fa.fa-minus
+              button.btn.btn-box-tool(type='button', data-widget='remove')
+                i.fa.fa-times
+          .box-body
+            .table-responsive.js-statslog
+              table.table.no-margin#statslog
+                thead
+                  tr
+                    th ID
+                    th Date
+                    th Program
+                    th Version
+                    th Language
+                    th Testcases
+                    th Success
+                    th Fail
+                    th Action
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+          .box-footer.clearfix
+            //- a.btn.btn-sm.btn-info.btn-flat.pull-left(href='javascript:void(0)') Place New Order
+            //- a.btn.btn-sm.btn-default.btn-flat.pull-right(href='javascript:void(0)') View All Orders
+          // /.box-footer

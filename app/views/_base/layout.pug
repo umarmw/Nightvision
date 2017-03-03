@@ -1,0 +1,17 @@
+include variables.pug
+include mixins.pug
+doctype html
+html
+  head
+    include head.pug
+  body.hold-transition.skin-blue.sidebar-mini
+
+    .wrapper
+      include topbar.pug
+      include sidebar.pug
+
+      .content-wrapper
+        block content
+
+      include footer-copyright.pug
+    include footer.pug

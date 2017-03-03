@@ -1,0 +1,46 @@
+// Left side column. contains the logo and sidebar
+aside.main-sidebar
+  // sidebar: style can be found in sidebar.less
+  section.sidebar
+    // Sidebar user panel (optional)
+    .user-panel
+      .pull-left.image
+        img.img-circle(src='/img/nightowl.png', alt='User Image')
+      .pull-left.info
+        p= user.firstname+" "+user.lastname
+        // Status
+        a(href='#')
+          i.fa.fa-circle.text-success
+          |  Online
+
+
+    // Sidebar Menu
+    ul.sidebar-menu
+
+      li
+        a(href='/program')
+          i.fa.fa-laptop
+          span Program
+
+
+      li.treeview
+        a(href='#')
+          i.fa.fa-th-large
+          span Management
+          i.fa.fa-angle-left.pull-right
+        ul.treeview-menu
+          li.treeview
+            a(href='/management/programs')
+              i.fa.fa-laptop
+              span Programs
+              i.fa.fa-angle-left.pull-right
+          li.treeview
+            a(href='/management/categories')
+              i.fa.fa-file-o
+              span Categories
+              i.fa.fa-angle-left.pull-right
+          li.treeview
+            a(href='/management/testcases')
+              i.fa.fa-file-text
+              span Testcases
+              i.fa.fa-angle-left.pull-right

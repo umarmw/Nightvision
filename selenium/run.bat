@@ -1,1 +1,1 @@
-java -jar selenium-server-standalone-2.47.0.jar
+java -jar selenium-server-standalone-2.53.1.jar

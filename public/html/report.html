@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Regression Report</title>
+    <meta name="description" content="Nightvision">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Bootstrap 3.3.5-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons-->
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <!-- Theme style-->
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <!--
+    AdminLTE Skins. We have chosen the skin-blue for this starter
+    page. However, you can choose any other skin. Make sure you
+    apply the skin class to the body tag so the changes take effect.
+    -->
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <!-- Main Header-->
+      <header class="main-header">
+        <!-- Logo--><a href="/" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels--><span class="logo-mini"><b>N</b>UI</span>
+          <!-- logo for regular state and mobile devices--><span class="logo-lg"><b>Nightvision</b>UI</span></a>
+        <!-- Header Navbar-->
+        <nav role="navigation" class="navbar navbar-static-top">
+          <!-- Sidebar toggle button--><a href="#" data-toggle="offcanvas" role="button" class="sidebar-toggle"><span class="sr-only">Toggle navigation</span></a>
+          <!-- Navbar Right Menu-->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account Menu-->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button--><a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  <!-- The user image in the navbar--><img src="/img/nightowl.png" alt="User Image" class="user-image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears.--><span class="hidden-xs">NightOwl</span></a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu-->
+                  <li class="user-header"><img src="/img/nightowl.png" alt="User Image" class="img-circle">
+                    <p>NightOwl - Web Tester<small>Member since Nov. 2012</small></p>
+                  </li>
+                  <!-- Menu Body-->
+                  <li class="user-body">
+                    <div class="row">
+                      <div class="col-xs-4 text-center"><a href="#">Followers</a></div>
+                      <div class="col-xs-4 text-center"><a href="#">Sales</a></div>
+                      <div class="col-xs-4 text-center"><a href="#">Friends</a></div>
+                    </div>
+                    <!-- /.row-->
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left"><a href="#" class="btn btn-default btn-flat">Profile</a></div>
+                    <div class="pull-right"><a href="#" class="btn btn-default btn-flat">Sign out</a></div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar-->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less-->
+        <section class="sidebar">
+          <!-- Sidebar user panel (optional)-->
+          <div class="user-panel">
+            <div class="pull-left image"><img src="/img/nightowl.png" alt="User Image" class="img-circle"></div>
+            <div class="pull-left info">
+              <p>NightOwl</p>
+              <!-- Status--><a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!-- Sidebar Menu-->
+          <ul class="sidebar-menu">
+            <li><a href="programs"><i class="fa fa-link"></i><span>Programs</span></a></li>
+            <li class="treeview"><a href="#"><i class="fa fa-link"></i><span>Management</span><i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class="treeview"><a href="management/programs"><i class="fa fa-link"></i><span>Programs</span><i class="fa fa-angle-left pull-right"></i></a></li>
+                <li class="treeview"><a href="management/testcases"><i class="fa fa-link"></i><span>Testcases</span><i class="fa fa-angle-left pull-right"></i></a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </aside>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1><small></small></h1>
+          <ol class="breadcrumb">
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"> <span itemprop="title">Home</span></a></li>
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/report" itemprop="url"> <span itemprop="title">Report</span></a></li>
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><span itemprop="title">Version - program -lang</span></li>
+          </ol>
+        </section>
+        <section class="content">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box"><span class="info-box-icon bg-aqua"><i class="fa fa-desktop"></i></span>
+                <div class="info-box-content"><span class="info-box-text">Program</span><span class="info-box-number"></span></div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box"><span class="info-box-icon bg-green"><i class="fa fa-files-o"></i></span>
+                <div class="info-box-content"><span class="info-box-text">Version</span><span class="info-box-number"></span></div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box"><span class="info-box-icon bg-yellow"><i class="fa fa-flag-o"></i></span>
+                <div class="info-box-content"><span class="info-box-text">Culture</span><span class="info-box-number"></span></div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box"><span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+                <div class="info-box-content"><span class="info-box-text">Build</span><span class="info-box-number">0.3</span></div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <form method="post" class="js-get-xml-report">
+                <input type="hidden" name="version" value="undefined">
+                <input type="hidden" name="program" value="undefined">
+                <input type="hidden" name="culture" value="undefined">
+              </form>
+              <input type="hidden" value="undefined" class="js-level-deep">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Test Results</h3>
+                </div>
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover js-report-table">
+                    <tbody>
+                      <tr>
+                        <th>#</th>
+                        <th>File</th>
+                        <th>Result</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Your Page Content Here-->
+        </section>
+      </div>
+      <footer class="main-footer">
+        <!-- To the right-->
+        <div class="pull-right hidden-xs">Selenium Nightwatch CSS Regression Testing</div>
+        <!-- Default to the left--><strong>Copyright © 2015 <a href="#">Nightvision</a>.</strong> All rights reserved.
+      </footer>
+    </div>
+    <!-- REQUIRED JS SCRIPTS-->
+    <!-- jQuery 2.1.4-->
+    <script src="/js/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5-->
+    <script src="/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- AdminLTE App-->
+    <script src="/js/app.min.js"></script>
+    <script src="/js/nui.js"></script>
+  </body>
+</html>
